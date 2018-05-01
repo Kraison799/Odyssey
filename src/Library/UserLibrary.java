@@ -1,4 +1,5 @@
 package Library;
+import registry.User;
 import trees.*;
 
 public class UserLibrary {
@@ -57,7 +58,7 @@ public class UserLibrary {
 	public List<Album> getAlbumList() {
 		return albumList;
 	}
-	public void setAlbumList(List<Album> albumList) {
+	public void setAlbumList(AlbumList albumList) {
 		this.albumList = albumList;
 	}
 	public List<Artist> getArtistList() {
