@@ -12,8 +12,7 @@ public class List<T> {
 	}
 	//Metodos
 	public void add(T value){//Agregar un miembro a la hilera al final
-		Nodo<T> New = new Nodo<T>();
-		New.setValue(value);
+		Nodo<T> New = new Nodo<T>(value);
 		if (empty()){
 			head = New;
 		}
@@ -39,7 +38,7 @@ public class List<T> {
 		}
 	return flag;
 	}
-	public void delete(T reference){//Elimina un miembro por referencia
+	void delete(T reference){//Elimina un miembro por referencia
 		if (search(reference)){
 			if (head.getValue() == reference){
 				head = head.getNext();
@@ -55,7 +54,19 @@ public class List<T> {
 			length--;
 		}
 	}
-
+	public T getValue(T reference){
+		Nodo<T> aux = head;
+		T object=null;
+		while (aux != null && object == null){
+			if (reference == aux.getValue()){
+				object = aux.getValue();
+			}
+			else{
+				aux = aux.getNext();
+			}
+		}
+		return object;
+	}
 	public void erase(){//Elimina la lista
 		head = null;
 		length = 0;

@@ -4,8 +4,8 @@ public class Nodo<T> {//T de Type
 	private T value;
 	private Nodo<T> next;
 	
-	public Nodo(){
-		this.setValue(null);
+	public Nodo(T object){
+		this.setValue(object);
 		this.setNext(null);
 	}
 
