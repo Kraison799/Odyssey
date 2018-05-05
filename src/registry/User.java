@@ -2,6 +2,7 @@ package registry;
 
 import Library.Artist;
 import Library.Song;
+import trees.SongList;
 import trees.AlbumList;
 import trees.ArtistList;
 import trees.List;
@@ -16,7 +17,7 @@ public class User {
     private String amigos;
     private ArtistList artistList;
     private AlbumList albumList;
-    private List<Song> songList;
+    private SongList songList;
     private List playlist;
 
     public String getUserName() {
@@ -83,11 +84,11 @@ public class User {
         this.albumList = albumList;
     }
 
-    public List<Song> getSongList() {
+    public SongList getSongList() {
         return songList;
     }
 
-    public void setSongList(List<Song> songList) {
+    public void setSongList(SongList songList) {
         this.songList = songList;
     }
 
