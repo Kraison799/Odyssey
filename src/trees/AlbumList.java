@@ -24,6 +24,7 @@ public class AlbumList extends List<Album>{
 					String albumName1 = this.getValue(index).getName();
 					String albumName2 = this.getValue(index+1).getName();
 					if (albumName1.compareToIgnoreCase(albumName2) > 0) {
+						sorted = false;
 						Album hold = this.getValue(index+1);
 						this.swap(this.getValue(index), index+1);
 						this.swap(hold,index);

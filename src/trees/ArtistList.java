@@ -15,8 +15,7 @@ public class ArtistList extends List<Artist>{
 	}
 	public int toValue(String artist, int pos, int arraylen) {//Gets the value of the evaluating character (0-26)
 		int value = 0;
-		String art = artist;
-		art.toLowerCase();
+		String art = artist.toLowerCase();
 		char[] arr = new char[arraylen];
 		for (int i=0 ; i < arraylen; i++) {
 			if (i < art.length()) {
@@ -53,12 +52,19 @@ public class ArtistList extends List<Artist>{
 				queue.dequeue();
 			}
 			for(int i=0; i<27;i++) {
-				while(arr[i] != null) {
+				int large = arr[i].getLength();
+				for(int j = 0; j<large; j++) {
 					queue.enqueue(arr[i].peek());
-					arr[i].dequeue();
+					arr[i].dequeue();	
 				}
 			}
 		loop--;
+		}
+		int large = this.getLength();
+		this.erase();
+		for (int i=0;i<large;i++) {
+			this.add(queue.peek());
+			queue.dequeue();
 		}
 	}
 }
