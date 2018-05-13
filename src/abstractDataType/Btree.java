@@ -1,4 +1,4 @@
-package trees;
+package abstractDataType;
 
 public class Btree implements Tree{
 	

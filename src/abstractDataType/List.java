@@ -1,4 +1,4 @@
-package trees;
+package abstractDataType;
 
 public class List<T> {
 	//Atributos
@@ -38,7 +38,7 @@ public class List<T> {
 		}
 	return flag;
 	}
-	void delete(T reference){//Elimina un miembro por referencia
+	public void delete(T reference){//Elimina un miembro por referencia
 		if (search(reference)){
 			if (head.getValue() == reference){
 				head = head.getNext();

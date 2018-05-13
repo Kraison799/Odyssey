@@ -1,4 +1,4 @@
-package trees;
+package abstractDataType;
 
 public class Queue<Type> {
 	private Nodo<Type> head;

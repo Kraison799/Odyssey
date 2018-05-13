@@ -1,4 +1,4 @@
-package trees;
+package abstractDataType;
 
 public class Nodo<T> {//T de Type
 	private T value;

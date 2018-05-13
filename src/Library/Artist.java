@@ -1,5 +1,5 @@
 package Library;
-import trees.List;
+import abstractDataType.List;
 
 public class Artist {
 	private String Name;

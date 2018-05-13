@@ -1,4 +1,4 @@
-package trees;
+package abstractDataType;
 
 public interface Tree<T> {
 	public void add();

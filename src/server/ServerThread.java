@@ -5,22 +5,22 @@ import java.net.*;
 import java.util.logging.*;
 
 public class ServerThread extends Thread {
-	    private Socket socket;
-	    private DataOutputStream dos;
-	    private DataInputStream dis;
+		private Socket socket;
+	    private DataOutputStream output;
+	    private DataInputStream input;
 	    private int idSessio;
 	    
 	    public ServerThread(Socket socket, int id) {
 	        this.socket = socket;
 	        this.idSessio = id;
 	        try {
-	            dos = new DataOutputStream(socket.getOutputStream());
-	            dis = new DataInputStream(socket.getInputStream());
+	            output = new DataOutputStream(socket.getOutputStream());
+	            input = new DataInputStream(socket.getInputStream());
 	        } catch (IOException ex) {
 	            Logger.getLogger(ServerThread.class.getName()).log(Level.SEVERE, null, ex);
 	        }
 	    }
-	    public void desconnectar() {
+	    public void disconnect() {
 	        try {
 	            socket.close();
 	        } catch (IOException ex) {
@@ -31,14 +31,14 @@ public class ServerThread extends Thread {
 	    public void run() {
 	        String accion = "";
 	        try {
-	            accion = dis.readUTF();
+	            accion = input.readUTF();
 	            if(accion.equals("hola")){
 	                System.out.println("El cliente con idSesion "+this.idSessio+" saluda");
-	                dos.writeUTF("adios");
+	                output.writeUTF("adios");
 	            }
 	        } catch (IOException ex) {
 	            Logger.getLogger(ServerThread.class.getName()).log(Level.SEVERE, null, ex);
 	        }
-	        desconnectar();
+	        disconnect();
 	    }
 }

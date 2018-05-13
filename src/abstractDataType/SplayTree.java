@@ -1,6 +1,6 @@
-package trees;
+package abstractDataType;
 
-public class AVLtree implements Tree {
+public class SplayTree implements Tree{
 
 	@Override
 	public void add() {

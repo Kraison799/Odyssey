@@ -2,10 +2,10 @@ package registry;
 
 import Library.Artist;
 import Library.Song;
-import trees.SongList;
-import trees.AlbumList;
-import trees.ArtistList;
-import trees.List;
+import abstractDataType.AlbumList;
+import abstractDataType.ArtistList;
+import abstractDataType.List;
+import abstractDataType.SongList;
 
 public class User {
 

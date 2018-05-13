@@ -1,4 +1,4 @@
-	package trees;
+package abstractDataType;
 
 public class Bnode implements Node<Object>{
 	private int order;  //variable to determine order of tree
