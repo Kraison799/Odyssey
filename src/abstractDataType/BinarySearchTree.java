@@ -1,54 +1,70 @@
 package abstractDataType;
 
-public class BinarySearchTree implements Tree {
+@SuppressWarnings("unchecked")
+public class BinarySearchTree<T extends Comparable<T>>  {
 
-    @Override
-    public void add() {
+    private TreeNode<T> root;
 
+    public BinarySearchTree(){
+        root = null;
     }
 
-    @Override
-    public void add(Node node) {
-
+    public void add(T value){
+        this.root = this.add(value, this.root);
     }
 
-    @Override
-    public void delete(Object song) {
-
+    private TreeNode add(T value, TreeNode<T> current){
+        if (current == null){
+            return new TreeNode<>(value);
+        } else if (current.getValue().compareTo(value) > 0){
+            current.setLeft(this.add(value, current.getLeft()));
+        } else if (current.getValue().compareTo(value) < 0){
+            current.setRight(this.add(value, current.getRight()));
+        }
+        return current;
     }
 
-    @Override
-    public void delete(Object mp3, Node node) {
-
+    public void remove(T data){
+        this.root = remove(data, this.root);
     }
 
-    @Override
-    public void findMin() {
-
+    private TreeNode<T> remove(T data, TreeNode<T> current){
+        if(current == null){
+            return current;
+        }
+        if(current.getValue().compareTo(data) > 0){
+            current.setLeft(remove(data, current.getLeft()));
+        } else if(current.getValue().compareTo(data) < 0){
+            current.setRight(remove(data, current.getRight()));
+        } else if(current.getLeft() != null && current.getValue() != null){
+            current.setValue(findMin(current.getRight()).getValue());
+            current.setRight(remove(current.getValue(), current.getRight()));
+        } else{
+            current  = current.getLeft() != null? current.getLeft(): current.getRight();
+        }
+        return current;
     }
 
-    @Override
-    public void findMin(Node node) {
-
+    private TreeNode<T> findMin(TreeNode<T> current){
+        if (current == null){
+            return null;
+        } else if (current.getLeft() == null){
+            return current;
+        } else{
+            return findMin(current.getLeft());
+        }
     }
 
-    @Override
-    public void findMax() {
-
+    public void printInorden(){
+        printInorden(root);
     }
 
-    @Override
-    public void findMax(Node node) {
-
+    private void printInorden(TreeNode<T> current){
+        if (current != null){
+            printInorden(current.getLeft());
+            System.out.println(current.getValue() + "");
+            printInorden(current.getRight());
+        }
     }
 
-    @Override
-    public void search(Object song) {
-
-    }
-
-    @Override
-    public void search(Object song, Node node) {
-
-    }
 }

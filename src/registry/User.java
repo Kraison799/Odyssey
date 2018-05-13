@@ -1,20 +1,18 @@
 package registry;
 
-import Library.Artist;
-import Library.Song;
 import abstractDataType.AlbumList;
 import abstractDataType.ArtistList;
 import abstractDataType.List;
 import abstractDataType.SongList;
 
-public class User {
+public class User implements Comparable<User>{
 
     private String userName;
     private String fullName;
     private int age;
     private List favoriteGenres;
     private String password;
-    private String amigos;
+    private String friends;
     private ArtistList artistList;
     private AlbumList albumList;
     private SongList songList;
@@ -60,12 +58,12 @@ public class User {
         this.password = password;
     }
 
-    public String getAmigos() {
-        return amigos;
+    public String getFriends() {
+        return friends;
     }
 
-    public void setAmigos(String amigos) {
-        this.amigos = amigos;
+    public void setFriends(String friends) {
+        this.friends = friends;
     }
 
     public ArtistList getArtistList() {
@@ -98,5 +96,16 @@ public class User {
 
     public void setPlaylist(List playlist) {
         this.playlist = playlist;
+    }
+
+    @Override
+    public int compareTo(User user){
+        if (getUserName().compareTo(user.getUserName()) < 0){
+            return -1;
+        }else if (getUserName().compareTo(user.getUserName()) > 0){
+            return 1;
+        }else{
+            return 0;
+        }
     }
 }
