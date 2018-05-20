@@ -61,14 +61,15 @@ public class User implements Comparable<User>{
     }
 
     public String getPassword() throws NoSuchAlgorithmException {
-        Digest digest = new Digest();
-        return digest.toMD5(password);
+        //Digest digest = new Digest();
+        //return digest.toMD5(password);
+        return password;
     }
+
 
     public void setPassword(String password) throws NoSuchAlgorithmException {
         this.password = password;
-        Digest digest = new Digest();
-        this.password = digest.toMD5(password);
+
     }
 
     public String getFriends() {

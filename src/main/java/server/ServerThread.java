@@ -77,6 +77,7 @@ public class ServerThread extends Thread {
 				System.out.println(mensaje);
 
 				User newUser = (User) convertXmlString2DataObject(mensaje,User.class);
+				//newUser.getHashPassword();
 				//signIn(oM,usersJson,newUser);
 				logIn(usersJson,oM,newUser);
 
@@ -143,10 +144,14 @@ public class ServerThread extends Thread {
 
 		//Verifica que el usuario coincida con alguno ya registrado.
 		for (User x: users) {
+			//System.out.println(x.getPassword());
+
 			if (x == null){
+
 				break;
 			} else if (x.getUserName().equals(newUser.getUserName()) &&
 					x.getPassword().equals(newUser.getPassword())){
+
 				//Crea una respuesta al cliente
 				String aceptado = "Usuario aceptado";
 				send(aceptado);
@@ -155,6 +160,8 @@ public class ServerThread extends Thread {
 		}
 		//Crea una respuesta al cliente
 		send("Invalid username or password");
+		//System.out.println(newUser.getPassword());
+
 		//Manda la respuesta al cliente
 		//send(xmlMapper.writeValueAsString(response));
 	}
